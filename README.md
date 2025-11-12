@@ -4,11 +4,11 @@ Malaria remains one of the most widespread and deadly infectious diseases, parti
 This project uses **deep learning** to automate malaria detection from blood smear cell images, providing a fast, consistent, and low-cost diagnostic aid. It demonstrates how modern computer vision techniques can support medical professionals and expand diagnostic capacity in low-resource environments.
 
 ## Overview  
-This project implements a model to classify individual blood-cell images as either **Parasitized** (i.e., infected with the malaria parasite) or **Uninfected**. It is based on a dataset of ~27,558 segmented cell images (equal numbers of parasitized/uninfected) from thin blood-smear slides. :contentReference[oaicite:0]{index=0}  
+This project implements a model to classify individual blood-cell images as either **Parasitized** (i.e., infected with the malaria parasite) or **Uninfected**. It is based on a dataset of ~27,558 segmented cell images (equal numbers of parasitized/uninfected) from thin blood-smear slides.
 
 ## Features  
 - Splits the raw dataset into training, validation, and test sets.  
-- Uses Keras’ ImageDataGenerator` for real‐time data augmentation (rotations, shifts, flips etc) to improve generalization.  
+- Uses Keras’ ImageDataGenerator` for real‐time data augmentation (rotations, shifts, flips, etc) to improve generalization.  
 - Builds a convolutional neural network (CNN) based on a residual network (ResNet) variant, allowing deeper layers while preserving gradient flow.  
 - Performs binary classification: an image → “Parasitized” or “Uninfected”.  
 - At the end of training: outputs training/validation accuracy & loss plots, prints classification report (precision/recall/f1), and saves the trained model.  
@@ -23,7 +23,7 @@ This project implements a model to classify individual blood-cell images as eith
 - NumPy, scikit‐learn, matplotlib   
 
 ### Dataset  
-Download the cell-image dataset: ~27,558 images of thin blood smear cells, evenly balanced between parasitized and uninfected. :contentReference[oaicite:1]{index=1}  
+Download the cell-image dataset: ~27,558 images of thin blood smear cells, evenly balanced between parasitized and uninfected.
 Unzip into a folder structure such as:  
 
 cell_images/
@@ -48,15 +48,12 @@ malaria-cell-image-classifier-keras/
 
 ### Usage  
 1. Place the dataset into `cell_images/`.  
-2. Run:  
-   ```bash
-   python build_dataset.py
-to split into training, validation, and test folders.
-3. Run: python train_model.py --plot plots/training_plot.png to train the CNN.
+2. Run: `python build_dataset.py` to split into training, validation, and test folders.
+3. Run: `python train_model.py --plot plots/training_plot.png` to train the CNN.
 4. After training, run evaluate_model.py to see the classification report, confusion matrix, and to save the final model for future inference.
 
 Configuration
-In pyimagesearch/config.py you’ll find parameters you can adjust:
+In pyimagesearch/config.py, you’ll find parameters you can adjust:
 
 ORIG_INPUT_DATASET → path to the raw data.
 
