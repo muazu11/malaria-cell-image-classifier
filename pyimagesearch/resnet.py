@@ -82,7 +82,7 @@ def convolutional_block(X, f, filters, stage, block, s=2):
 
     return X
 
-def ResNet50(input_shape=(64, 64, 3), classes=6):
+def ResNet(input_shape=(64, 64, 3), classes=6):
     # Define the Input Tensor
     X_inp = Input(input_shape)
 
@@ -126,6 +126,6 @@ def ResNet50(input_shape=(64, 64, 3), classes=6):
     X = Flatten()(X)
     X = Dense(classes, activation='softmax', name='fc' + str(classes), kernel_initializer=glorot_uniform())(X)
 
-    model = Model(inputs=X_inp, outputs=X, name='ResNet50')
+    model = Model(inputs=X_inp, outputs=X, name='ResNet')
 
     return model

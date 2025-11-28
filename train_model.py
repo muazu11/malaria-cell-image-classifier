@@ -84,9 +84,8 @@ testGen = valAug.flow_from_directory(
 	batch_size=BS)
 
 # initialize our ResNet model and compile it
-model = ResNet.build(64, 64, 3, 2, (3, 4, 6),
-	(64, 128, 256, 512), reg=0.0005)
-opt = SGD(lr=INIT_LR, momentum=0.9)
+model = ResNet(input_shape=(64, 64, 3), classes=2)
+opt = SGD(learning_rate=INIT_LR, momentum=0.9)
 model.compile(loss="binary_crossentropy", optimizer=opt,
 	metrics=["accuracy"])    
 
